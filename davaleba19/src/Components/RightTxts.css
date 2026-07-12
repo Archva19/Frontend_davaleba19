@@ -1,0 +1,94 @@
+.txtsContainer {
+  margin-bottom: 32px;
+}
+
+.txt1 {
+  color: #ff7e1b;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 27px;
+}
+
+.txt2 {
+  color: #1d2026;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 48px;
+  margin-bottom: 32px;
+}
+
+.txt3 {
+  color: #69707d;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 24px;
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.newPrice {
+  color: #1d2026;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.sale {
+  color: #ff7e1b;
+  background-color: #ffeee2;
+  width: 51px;
+  height: 27px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.oldPrice {
+  text-decoration: line-through;
+  color: #b6bcc8;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+@media (max-width: 500px) {
+  .txtsContainer {
+    margin-bottom: 24px;
+  }
+
+  .txt1 {
+    font-size: 12px;
+    letter-spacing: 1.85px;
+    margin-bottom: 19px;
+  }
+
+  .txt2 {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 15px;
+  }
+
+  .txt3 {
+    font-size: 15px;
+    line-height: 25px;
+    margin-bottom: 24px;
+  }
+
+  .pricesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .prices {
+    margin-bottom: 0px;
+  }
+}

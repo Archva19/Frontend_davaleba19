@@ -1,0 +1,47 @@
+.mainWindow {
+  padding: 0 165px 132px 165px;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 125px;
+  z-index: 1;
+}
+
+.mainRight {
+  max-width: 445px;
+  padding: 24px;
+}
+
+.emblaCarouselMainWindow{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .mainWindow {
+    gap: 25px;
+    padding: 0 24px;
+  }
+  .mainContent {
+    flex-direction: column;
+    gap: 0;
+  }
+  .emblaCarouselMainWindow{
+  display: flex;
+}
+
+.mainRight {
+  max-width: 100%;
+}
+}
