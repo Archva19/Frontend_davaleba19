@@ -20,12 +20,11 @@
   padding: 24px;
 }
 
-.emblaCarouselMainWindow{
+.emblaCarouselMainWindow {
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
 }
 
 @media (max-width: 1050px) {
@@ -37,11 +36,8 @@
     flex-direction: column;
     gap: 0;
   }
-  .emblaCarouselMainWindow{
-  display: flex;
-}
 
-.mainRight {
-  max-width: 100%;
-}
+  .mainRight {
+    max-width: 100%;
+  }
 }

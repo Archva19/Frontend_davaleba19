@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import ProductImgs from "./Components/ProductImgs";
@@ -22,7 +22,7 @@ export const MyContext = createContext<MyContextType | null>(null);
 
 export default function App() {
   const [count, setCount] = useState<number>(0);
-const [cartCount, setCartCount] = useState<number>(0);
+  const [cartCount, setCartCount] = useState<number>(0);
   const [cartVisible, setCartVisible] = useState<boolean>(false);
 
   function cartShow() {
@@ -39,7 +39,7 @@ const [cartCount, setCartCount] = useState<number>(0);
   function higherCount() {
     setCount((prev) => prev + 1);
   }
-  
+
   function addToCart() {
     setCartCount((prev) => prev + count);
     setCount(0);
@@ -57,22 +57,33 @@ const [cartCount, setCartCount] = useState<number>(0);
     resetCart,
   };
 
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 1050);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1050);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
-      <MyContext.Provider
-        value={value}
-      >
+      <MyContext.Provider value={value}>
         <div className="mainWindow" onClick={closeCartWindow}>
           <Header />
           <div className="mainContent">
-            <ProductImgs />
-            <div className="emblaCarouselMainWindow">
-              <EmblaCarousel
-                slides={productImgs}
-                options={OPTIONS}
-                carouselType="mainPage"
-              />
-            </div>
+            {!isMobile ? <ProductImgs /> : null}
+            {isMobile ? (
+              <div className="emblaCarouselMainWindow">
+                <EmblaCarousel
+                  slides={productImgs}
+                  options={OPTIONS}
+                  carouselType="mainPage"
+                />
+              </div>
+            ) : null}
             <div className="mainRight">
               <RightTxts />
               <RightBtns
