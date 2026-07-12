@@ -31,7 +31,7 @@
 @media (max-width: 1050px) {
   .mainWindow {
     gap: 25px;
-    padding: 0 24px;
+    padding: 16px 24px 0 24px;
   }
   .mainContent {
     flex-direction: column;

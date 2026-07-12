@@ -1,7 +1,14 @@
 import cart from "../assets/Shape.svg";
 import "./RightBtns.css";
 
-export default function RightBtns({ count, lowerCount, higherCount, addToCart}) {
+interface RightBtnsProps {
+  count: number;
+  lowerCount: () => void;
+  higherCount: () => void;
+  addToCart: () => void;
+}
+
+export default function RightBtns({ count, lowerCount, higherCount, addToCart}:RightBtnsProps) {
   return (
     <>
       <div className="btns">

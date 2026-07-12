@@ -150,7 +150,7 @@
   height: 100vh;
   background-color: white;
   opacity: 1;
-  width: 50vw;
+  width: 66.67%;
   z-index: 999;
   padding: 24.78px 0 0 25.28px;
 }
@@ -202,6 +202,7 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+
   }
 
   .headerMainInner {
@@ -220,6 +221,10 @@
 @media (max-width: 1050px) {
   .rectangle {
     display: none;
+  }
+
+  .headerMain{
+    height: 27px;
   }
 }
 

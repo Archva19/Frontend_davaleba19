@@ -7,7 +7,11 @@ import closeImgHover from "../assets/Combined Shape-2.svg";
 
 const OPTIONS: EmblaOptionsType = {};
 
-export default function EmblaMain({ closeFun }) {
+interface EmblaMainProps {
+  closeFun: () => void;
+}
+
+export default function EmblaMain({ closeFun }:EmblaMainProps) {
   return (
     <>
       <div className="emblaWindow" onClick={closeFun}>

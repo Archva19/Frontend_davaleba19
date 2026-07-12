@@ -10,13 +10,20 @@ import type { EmblaOptionsType } from "embla-carousel";
 import { productImgs } from "../arrItems.tsx";
 const OPTIONS: EmblaOptionsType = {};
 
+interface MyContextType {
+  cartCount: number;
+  cartShow: () => void;
+  cartVisible: boolean;
+  setCartVisible: (visible: boolean) => void;
+  resetCart: () => void;
+}
 
-export const MyContext = createContext(null);
+export const MyContext = createContext<MyContextType | null>(null);
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
-  const [cartVisible, setCartVisible] = useState(false);
+  const [count, setCount] = useState<number>(0);
+const [cartCount, setCartCount] = useState<number>(0);
+  const [cartVisible, setCartVisible] = useState<boolean>(false);
 
   function cartShow() {
     setCartVisible(!cartVisible);
@@ -27,12 +34,12 @@ export default function App() {
   }
 
   function lowerCount() {
-    setCount((prev) => prev - 1);
+    setCount((prev) => (prev > 0 ? prev - 1 : 0));
   }
   function higherCount() {
     setCount((prev) => prev + 1);
   }
-  const [cartCount, setCartCount] = useState(0);
+  
   function addToCart() {
     setCartCount((prev) => prev + count);
     setCount(0);
@@ -42,17 +49,29 @@ export default function App() {
     setCartCount(0);
   }
 
+  const value: MyContextType = {
+    cartCount,
+    cartShow,
+    cartVisible,
+    setCartVisible,
+    resetCart,
+  };
+
   return (
     <>
       <MyContext.Provider
-        value={{ cartCount, cartShow, cartVisible, setCartVisible, resetCart }}
+        value={value}
       >
         <div className="mainWindow" onClick={closeCartWindow}>
           <Header />
           <div className="mainContent">
             <ProductImgs />
-            <div className = "emblaCarouselMainWindow">
-              <EmblaCarousel slides={productImgs} options={OPTIONS} carouselType = "mainPage" />
+            <div className="emblaCarouselMainWindow">
+              <EmblaCarousel
+                slides={productImgs}
+                options={OPTIONS}
+                carouselType="mainPage"
+              />
             </div>
             <div className="mainRight">
               <RightTxts />

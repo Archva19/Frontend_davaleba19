@@ -49,11 +49,11 @@ export default function Footer() {
                 className="cartBtn"
                 onClick={(e) => {
                   e.stopPropagation();
-                  context.cartShow();
+                  context!.cartShow();
                 }}
               >
                 <img className="cartImg" src={cart} alt="cart" />
-                <p className="cartCount">{context.cartCount}</p>
+                <p className="cartCount">{context!.cartCount}</p>
               </button>
               <button className="profileBtn">
                 <img className="profileImg" src={profileImg} alt="profileImg" />
@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
         </div>
         <img className="rectangle" src={rectangle} alt="" />
-        {context.cartVisible ? <Cart /> : null}
+        {context!.cartVisible ? <Cart /> : null}
       </div>
       {sideMenuVis ? (
         <div className = "sideMenu">
