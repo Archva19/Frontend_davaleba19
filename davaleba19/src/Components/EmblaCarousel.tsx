@@ -33,7 +33,7 @@ const EmblaCarousel = (props: PropType) => {
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <div className="embla" onClick={(e) => e.stopPropagation()}>
+    <div className="embla" onClick={(e) => carouselType === "separateWindow" ? e.stopPropagation() : null}>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide: SlideType, index: number) => (
