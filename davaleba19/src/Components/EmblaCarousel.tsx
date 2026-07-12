@@ -5,7 +5,7 @@ import {
   PrevButton,
   usePrevNextButtons,
 } from "./EmblaCarouselArrowButtons";
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
+import { useDotButton } from "./EmblaCarouselDotButton";
 
 type SlideType = {
   id: number;
@@ -22,7 +22,7 @@ const EmblaCarousel = (props: PropType) => {
   const { slides, options, carouselType } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
-  const { selectedIndex, scrollSnaps, onDotButtonClick } =
+  const { selectedIndex, onDotButtonClick } =
     useDotButton(emblaApi);
 
   const {
